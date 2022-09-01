@@ -3,8 +3,10 @@ import { useState } from 'react';
 function App() {
   const [aluno, setAluno] = useState({nome: "Aluno", email: "email@email.com", idade: 0});
 
-  function changeName() {
-    setAluno('Higor Bueno')
+  function changeName(e) {
+    e.preventDefault();
+
+    setAluno({nome: e.nome, email: e.email, idade: e.idade})
   }
 
   return (

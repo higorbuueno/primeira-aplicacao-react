@@ -1,14 +1,26 @@
 import { useState } from 'react';
 
 function Exercicio() {
-  const [aluno, setAluno] = useState({ nome: "Aluno", email: "email@email.com", idade: 0 });
+  const [numero1, setNumero1] = useState();
+  const [numero2, setNumero2] = useState();
 
-  function changeName() {
-    setAluno('Higor Bueno')
+  function changeNumero1() {
+    setNumero1('Higor Bueno');
   }
 
+  function changeNumero2() {
+    setNumero1('Higor Bueno');
+  }
   return (
-    <Calculadora />
+    <div>
+      <form>
+        <input id="numero1" placeholder='Digite o primeiro número' value={numero1} onChange={(e) => setNumero1(e.target.value)} />
+        +
+        <input id="numero2" placeholder='Digite o segundo número' value={numero2} onChange={(e) => setNumero2(e.target.value)} />
+        = <Resultado numero1={numero1} numero2={numero2} />
+      </form>
+
+    </div>
   );
 }
 
@@ -20,33 +32,16 @@ function Pessoa(props) {
   );
 }
 
-function Calculadora(props) {
+function Resultado(props) {
+  var resultado = 0;
+  const numero1 = props.numero1 ? parseInt(props.numero1) : 0;
+  const numero2 = props.numero2 ? parseInt(props.numero2) : 0;
+  
+  resultado = numero1 + numero2;
+
   return (
-    <container class="container" >
-      <div class="calculadora">
-        <div class="numeros">
-          <div id='fileira-1'>
-            <div class="numero">1</div>
-            <div class="numero">2</div>
-            <div class="numero">3</div>
-          </div>
-          <div id='fileira-2'>
-            <div class="numero">4</div>
-            <div class="numero">5</div>
-            <div class="numero">6</div>
-          </div>
-          <div id='fileira-3'>
-            <div class="numero">7</div>
-            <div class="numero">8</div>
-            <div class="numero">9</div>
-          </div>
-          <div class="numero-0">
-            <div>
-            0
-            </div>
-          </div>
-        </div>
-      </div>
-    </container>
+    <div>
+      {resultado}
+    </div>
   );
 }
