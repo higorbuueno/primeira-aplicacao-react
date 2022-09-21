@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './aulas/aula04';
-import Exercicio from './exercicios/calculadora';
+
+import App from './exercicios/consultar-api';
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    {/* <App /> */}
-    <Exercicio />
-  </React.StrictMode>
+  // <React.StrictMode>
+    <App /> 
+    
+  // </React.StrictMode>
 );
